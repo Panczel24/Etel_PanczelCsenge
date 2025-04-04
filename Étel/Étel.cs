@@ -12,14 +12,14 @@ namespace Étel
 		double weight;
 		string name;
 
-		public bool IsItDairyFree { get; set; }
+		
 		public double CaloriesPerDkg { get => caloriesPerDkg; set => caloriesPerDkg = value; }
 		public double Weight { get => weight; set => weight = value; }
 		public string Name { get => name; set => name = value; }
+        public bool IsItDairyFree { get; set; }
+        //egy bool típusú publikusan írható és olvasható IsItDairyFree tulajdonságot - ha nagy betű és tulajdonság, akkor bizto kell get és set
 
-		//egy bool típusú publikusan írható és olvasható IsItDairyFree tulajdonságot - ha nagy betű és tulajdonság, akkor bizto kell get és set
-
-		protected Étel(double caloriesPerDkg, double weight, string name)
+        protected Étel(double caloriesPerDkg, double weight, string name)
 		{
 			this.caloriesPerDkg = caloriesPerDkg;
 			this.weight = weight;
@@ -27,8 +27,11 @@ namespace Étel
 			this.IsItDairyFree = false;
 		}
 
-		public abstract double CountCalories();//láthatósaá, jellemző, típus
+		public abstract double CountCalories();//láthatóság, jellemző, típus
 
-		//override kell
+        public override string? ToString()
+        {
+            return $"{name}: {caloriesPerDkg} kalória/dkg, {weight} dkg adagokbanban";
+        }
 	}
 }
