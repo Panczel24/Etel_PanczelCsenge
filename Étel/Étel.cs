@@ -29,6 +29,6 @@ namespace Étel
 
 		public abstract double CountCalories();//láthatósaá, jellemző, típus
 
-
+		//override kell
 	}
 }
